@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y2K Bug Presentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .slide {
+            display: none;
+            padding: 20px;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .active {
+            display: block;
+        }
+        .title {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .content {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .controls button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide active" id="slide1">
+        <div class="title">The Y2K Bug: A Global Software Crisis</div>
+        <div class="content">
+            As the year 2000 approached, the "Y2K Bug" became a global concern. This issue highlighted how small design flaws in software could lead to potential catastrophic consequences. Let’s explore what happened and what we learned.
+        </div>
+    </div>
+
+    <div class="slide" id="slide2">
+        <div class="title">The Problem</div>
+        <div class="content">
+            Many computer programs stored years as two digits (e.g., "99" for 1999) to save memory. When the year changed to 2000, these systems could misinterpret "00" as 1900, causing errors in calculations, banking, scheduling, and more.
+        </div>
+    </div>
+
+    <div class="slide" id="slide3">
+        <div class="title">The Fear</div>
+        <div class="content">
+            Governments and businesses feared widespread failures, such as:
+            <ul>
+                <li>Banking systems miscalculating interest.</li>
+                <li>Power grids shutting down.</li>
+                <li>Air traffic control systems failing.</li>
+                <li>Critical infrastructure malfunctions in hospitals and utilities.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide" id="slide4">
+        <div class="title">The Solution</div>
+        <div class="content">
+            Organizations globally took proactive measures, including:
+            <ul>
+                <li>Updating software to handle four-digit year formats.</li>
+                <li>Conducting massive testing and remediation efforts.</li>
+                <li>Spending billions of dollars to ensure systems functioned correctly.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="slide" id="slide5">
+        <div class="title">The Outcome</div>
+        <div class="content">
+            Thanks to global efforts, the Y2K Bug caused minimal disruption when 2000 arrived. However, it exposed the risks of short-sighted design decisions and emphasized the importance of proactive software engineering.
+        </div>
+    </div>
+
+    <div class="slide" id="slide6">
+        <div class="title">Lesson Learned</div>
+        <div class="content">
+            The Y2K crisis taught us the value of forward-thinking design, regular audits of legacy systems, and the critical need for robust testing to prevent similar issues in the future.
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(slideNumber) {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === slideNumber - 1);
+            });
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+    </script>
+</body>
+</html>
